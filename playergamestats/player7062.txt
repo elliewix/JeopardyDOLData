@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" width="194"><img src="players/KyleKahan.jpg" width="194" height="118" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">A senior from Texas A&M University from Houston, Texas...</p><p class="player_full_name">Kyle Kahan</p></td></tr>
+              <tr><td valign="top" width="194"><img src="players/KyleKahan.jpg" width="194" height="118" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">A senior from Houston, Texas...</p><p class="player_full_name">Kyle Kahan</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=7062">Kyle</a> appeared in the following 2 archived games:</td></tr>

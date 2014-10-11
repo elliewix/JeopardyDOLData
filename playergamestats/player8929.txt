@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" width="231"><img src="players/ErikaSloan.jpg" width="231" height="198" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">A sophomore from Middlebury College from Simsbury, Connecticut...</p><p class="player_full_name">Erika Sloan</p></td></tr>
+              <tr><td valign="top" width="231"><img src="players/ErikaSloan.jpg" width="231" height="198" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">A sophomore from Simsbury, Connecticut...</p><p class="player_full_name">Erika Sloan</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=8929">Erika</a> appeared in the following 2 archived games:</td></tr>

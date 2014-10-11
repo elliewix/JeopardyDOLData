@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" colspan="2"><p class="player_occupation_and_origin">A senior from Georgia Tech University...</p><p class="player_full_name">Michael Musgrove</p></td></tr>
+              <tr><td valign="top" colspan="2"><p class="player_occupation_and_origin">A senior at Georgia Tech University from Georgia...</p><p class="player_full_name">Michael Musgrove</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=9072">Michael</a> appeared in the following archived game:</td></tr>
