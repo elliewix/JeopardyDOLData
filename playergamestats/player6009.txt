@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" width="129"><img src="players/MichaelArnold.jpg" width="129" height="99" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">An Air Force weapons systems officer originally from Tampa, Florida, now stationed at RAF Lakenheath, England...</p><p class="player_full_name">Michael Arnold</p></td></tr>
+              <tr><td valign="top" width="129"><img src="players/MichaelArnold.jpg" width="129" height="99" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">An Air Force weapons systems officer originally from Tampa, Florida...</p><p class="player_full_name">Michael Arnold</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=6009">Michael</a> appeared in the following archived game:</td></tr>
