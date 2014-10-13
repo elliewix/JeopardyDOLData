@@ -1,0 +1,5 @@
+> year <- as.numeric(usplayerswithsoc$year)
+> hist(year)
+
+barplot(prop.table(table(state)))
+
