@@ -3,3 +3,59 @@
 
 barplot(prop.table(table(state)))
 
+summary()
+sum()
+rep("yo ho",times = 3)
+
+
+list.files()
+
+source("bottle1.R") to run a file
+
+seq(5,9,.5)
+[1] 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0
+
+> sentence <- c('walk', 'the', 'plank')
+> sentence[3]
+
+> sentence[c(1,3)]
+[1] "walk" "dog"
+
+> sentence[2:4]
+[1] "the" "dog" "to" 
+
+> sentence[5:7] <-c('the','poop','deck')
+
+> ranks <- 1:3
+> names(ranks) <- c("first", "second", "third")
+
+Plotting:
+
+barplot--
+
+vesselsSunk <- c(4, 5, 1) assigns the values
+names(vesselsSunk) <- c('England','France','Norway') gives those values names
+barplot(vesselsSunk)
+
+If you add a scalar (a single value) to a vector, the scalar will be added to each value in the vector, returning a new vector with the results. Try adding 1 to each element in our vector:
+
+> a <- c(1, 2, 3)
+> a + 1
+[1] 2 3 4
+
+works for other arithmatic operators
+
+You can extend this to other vectors, and they will apply in line.
+
+Running equality this way will check each value's equality rather than the whole vector.
+
+run a through functions to do the same thing..
+
+Scatterplot ---
+
+plot(x, y) to plot two things together
+
+NA values----
+
+sum(a, na.rm = T) do the sum while ignoring NA values
+
