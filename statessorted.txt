@@ -1,57 +1,56 @@
-Alabama
-Alaska
-Arizona
-Arkansas
-Caifornia
-California
-Colorado
-Connecticut
-Delaware
-Florida
-Georgia
-Hawaii
-Idaho
-Illinois
-Indiana
-Iowa
-Kansas
-Kentucky
-Louisiana
-Maine
-Maryland
-Massachusetts
-Michigan
-Minnesota
-Missiouri
 Mississippi
-Missouri
-Montana
-Nebraska
-New Hampshire
-New Jersey
-New Mexico
-New York
-North Carolina
-North Dakota
-Nevada
-Nevade
-Ohio
 Oklahoma
-Onio
-Oregon
-Pennsylvania
-Rhode Island
-South Carolina
-South Dakota
-Tennessee
-Texas
-Utah
-Vermont
-Virginia
-Vriginia
-Washington
-West Virginia
-Wisconsin
+Delaware
+Minnesota
+Illinois
+Arkansas
+New mexico
+Indiana
+Maryland
+Louisiana
+Idaho
 Wyoming
+Tennessee
+Arizona
+Iowa
+Michigan
+Kansas
+Utah
+Virginia
+Oregon
+Connecticut
+Montana
+California
+Massachusetts
+West Virginia
+South Varolina
+New Hampshire
+Wisconsin
+Vermont
+Georgia
+North Dakota
+Pennsylvania
+Puerto Rico
+Florida
+Alaska
+Kentucky
+Hawaii
+Nebraska
+Missouri
+Ohio
+Alabama
+New york
+Virgin Islands
+South dakota
+Colorado
+New Jersey
+Guam
+Washington
+North Carolina
+District of Columbia
+Texas
+Nevada
+Maine
+Rhode Island
 Washington, D.C.
 Washington, DC

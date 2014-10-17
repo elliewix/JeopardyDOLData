@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" width="115"><img src="players/DonaldBurgoToC.jpg" width="115" height="144" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">A college teacher from St. Louis, Missiouri...</p><p class="player_full_name">Donald Burgo</p></td></tr>
+              <tr><td valign="top" width="115"><img src="players/DonaldBurgoToC.jpg" width="115" height="144" border="0"></td><td valign="top" width="100%"><p class="player_occupation_and_origin">A college teacher from St. Louis, Missouri...</p><p class="player_full_name">Donald Burgo</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=7379">Donald</a> appeared in the following 2 archived games:</td></tr>

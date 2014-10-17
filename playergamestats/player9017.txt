@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" colspan="2"><p class="player_occupation_and_origin">A high-school campus director from Springfield, Onio...</p><p class="player_full_name">Jonathan Kuehnle</p></td></tr>
+              <tr><td valign="top" colspan="2"><p class="player_occupation_and_origin">A high-school campus director from Springfield, Ohio...</p><p class="player_full_name">Jonathan Kuehnle</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=9017">Jonathan</a> appeared in the following archived game:</td></tr>

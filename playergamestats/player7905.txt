@@ -20,7 +20,7 @@
 </div>
 <div id="content">
             <table>
-              <tr><td valign="top" colspan="2"><p class="player_occupation_and_origin">A journalist from Alexandria, Vriginia...</p><p class="player_full_name">Bob Menaker</p></td></tr>
+              <tr><td valign="top" colspan="2"><p class="player_occupation_and_origin">A journalist from Alexandria, Virginia...</p><p class="player_full_name">Bob Menaker</p></td></tr>
             </table>
             <table>
               <tr><td colspan="6"><a href="showplayer.php?player_id=7905">Bob</a> appeared in the following archived game:</td></tr>
