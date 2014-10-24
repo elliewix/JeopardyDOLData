@@ -65,3 +65,10 @@ barplot(table(main),cex.axis=0.35)
 # take out 2013 players
 
 play2013 <- subset(cleanplayersnoNA, year == 2013)
+
+boxplot(play2013$winnings ~ play2013$main, data = play2013)
+
+barplot(table(play2013$winnings, play2013$main))
+
+
+
