@@ -5,14 +5,17 @@ date: "October 27, 2014"
 output: html_document
 ---
 
-```
-library(data.frame)
+```{r echo=FALSE}
+library("data.table")
+options("scipen"=999)
 ```
 
-Import the Jeopardy player dataset and name variables.
 
-```{r}
-usplayerswithsoc <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsoc.csv")
+```{r echo =FALSE}
+
+# Import the Jeopardy player dataset and name variables.
+
+usplayerswithsoc <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsocNODUPE.csv")
 
 id <- usplayerswithsoc$ID
 name <- usplayerswithsoc$name
@@ -28,44 +31,54 @@ main <- usplayerswithsoc$main
 sub <- usplayerswithsoc$sub
 ```
 
-Make a new copy of the data to begin cleaning up.
 
-```{r}
+
+```{r echo =FALSE}
+
+# Make a new copy of the data to begin cleaning up.
 cleanplayers <- data.frame(id, name, year, occ, loc, numgames, winnings, state, soc, main, sub)
 
 ```
 
-Convert quantitative variables to numeric
 
-```{r}
+
+```{r echo = F}
+
+# Convert quantitative variables to numeric
 cleanplayers$year <- as.numeric(cleanplayers$year)
 cleanplayers$winnings <- as.numeric(cleanplayers$winnings)
 cleanplayers$numgames <- as.numeric(cleanplayers$numgames)
 
 ```
 
-Replace bad year values to NA
-There are some invalid years both above and below real dates
 
-```{r}
+
+```{r echo = F}
+
+# Replace bad year values to NA
+#There are some invalid years both above and below real dates
 cleanplayers$year [cleanplayers$year < 1950] <- NA
 cleanplayers$year [cleanplayers$year > 2015] <- NA
 
 ```
 
-Replace other coded missing items as NA.
-Sub SOC values coded as 9999 are not replaced with NA because 56-9999 would be valid.
-Cases missing mains will be thrown out in a later stage.
 
-```{r}
+
+```{r echo = F}
+
+# Replace other coded missing items as NA.
+# Sub SOC values coded as 9999 are not replaced with NA because 56-9999 would be valid.
+# Cases missing mains will be thrown out in a later stage.
 cleanplayers$soc[cleanplayers$soc == ''] <- NA
 cleanplayers$main[cleanplayers$main == '9999'] <- NA
 ```
 
-Create anoter version of the player data frame only containing players without NA values, and reassign variables.
-This reduced the total number of players for analysis to about 5,000.
 
-```{r}
+
+```{r echo = F}
+#Create anoter version of the player data frame only containing players without NA values, and reassign variables.
+#This reduced the total number of players for analysis to about 5,000.
+
 cleanplayersnoNA <- na.omit(cleanplayers)
 
 id <- cleanplayersnoNA$ID
@@ -82,31 +95,104 @@ main <- cleanplayersnoNA$main
 sub <- cleanplayersnoNA$sub
 ```
 
-Create a barplot to preview the distribution of main codes among the remaining players.
+Plots to describe the basic data.
 
-```{r}
-barplot(table(main),cex.axis=0.5)
+```{r echo = F}
+barplot(table(main), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players in major SOC codes", xlab = "Frequency", ylab = "Major code")
+
+barplot(table(state), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and reported home state", xlab = "Frequency")
+
+barplot(table(year), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games represented within each year", xlab = "Games", ylab = "Year")
+
+barplot(table(numgames), horiz=F, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games won per player", xlab = "Games", ylab = "Player frequency")
+
+#hist(table(winnings),breaks =100, xlab = "Games", ylab = "Player frequency")
 ```
 
-Create a summary of the cleaned data set.
+Summary of the cleaned data set.
 
-```{r}
+```{r echo = F}
 summary(cleanplayersnoNA)
 ```
 
 Aggregate the average amount of winnings by main group.
 
-```{r}
+```{r echo = F}
 
-playersagg <- as.data.frame(cleanplayersnoNA[, mean(cleanplayersnoNA.winnings, na.rm = TRUE),by = cleanplayersnoNA.main])
+justwinnings <-data.frame(cleanplayersnoNA$main, cleanplayersnoNA$winnings)
+options(digits=3)
+attach(justwinnings)
 
-aggmain <- playersagg$cleanplayersnoNA.main
-aggwinavg <- playersagg$V1
+```
 
-dotchart(aggwinavg, labels = aggmain, cex=.7)
+```{r echo = F}
+ winningagg <- aggregate(justwinnings$cleanplayersnoNA.winnings, list( main = justwinnings$cleanplayersnoNA.main), mean)
+
+dotchart(winningagg$x, labels = winningagg$main, cex=.7)
+#playersagg <- data.table(cleanplayersnoNA.main, cleanplayersnoNA.winnings)
+#playersagg <- as.data.frame(playersagg[, mean(cleanplayersnoNA.winnings, na.rm = TRUE),by = cleanplayersnoNA.main])
+
+#aggmain <- playersagg$cleanplayersnoNA.main
+#aggwinavg <- playersagg$V1
+
+#dotchart(aggwinavg, labels = aggmain, cex=.7)
+```
+
+
+View boxplot of winnings with Ken Jennings and without.
+
+```{r echo = F}
+
+noken <- subset(cleanplayersnoNA, id != '661')
+
+boxplot(cleanplayersnoNA$winnings ~ cleanplayersnoNA$main, data = cleanplayersnoNA)
+
+boxplot(noken$winnings ~ noken$main, data = noken)
+
+boxplot(noken$winnings ~ noken$year, data = noken)
+
+```
+
+  
+
+```{r echo = F}
+
+justone <- subset(cleanplayersnoNA, cleanplayersnoNA$numgames == 1)
+morethanone <- subset(cleanplayersnoNA, cleanplayersnoNA$numgames > 1)
+```
+Plots comparing all players who have only won one game versus more than one, including Ken Jennings.  There are `r length(justone$id)` players who have only appeared on a single game (`r 100 * (length(justone$id) / length(cleanplayersnoNA$id))`%) and `r length(morethanone$id)` have won at least one game (`r 100 * (length(morethanone$id) / length(cleanplayersnoNA$id))`%).
+
+```{r echo = F}
+
+barplot(table(cleanplayersnoNA$main, cleanplayersnoNA$numgames), col=c("darkblue","red"), horiz=F, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games won per player", xlab = "Games", ylab = "Player frequency")
+
+boxplot(justone$winnings ~ justone$main, data = justone)
+
+boxplot(morethanone$winnings ~ morethanone$main, data = morethanone)
+
+nokenmroethanone <- subset(morethanone, id != '661')
+
+boxplot(nokenmroethanone$winnings ~ nokenmroethanone$main, data = nokenmroethanone, format)
+
+```
+
+Frequency of players within major SOC codes and game winners or not.
+
+```{r echo = F}
+
+cleanplayersnoNA$gameswoncat <- "Won 1+"
+cleanplayersnoNA$gameswoncat [cleanplayersnoNA$numgames == 1] <- "Won none"
+
+counts <- table(cleanplayersnoNA$gameswoncat, cleanplayersnoNA$main)
+
+barplot(counts, main="Frequency of players within major SOC coes", ylab="Frequency", xlab="Major code", col=c("cadetblue4","antiquewhite"),legend = rownames(counts))
+
+
 ```
 
 There are a total of `r length(cleanplayersnoNA$id)` players remaining within the dataset after omitting those with missing values.  
+
+http://www.inside-r.org/packages/cran/epicalc/docs/aggregate.plot
 
 play2013 <- subset(cleanplayersnoNA, year == 2013)
 
