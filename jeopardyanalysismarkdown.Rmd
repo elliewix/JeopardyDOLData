@@ -1,0 +1,116 @@
+---
+title: "Jeopardy Analysis"
+author: "Elizabeth Wickes"
+date: "October 27, 2014"
+output: html_document
+---
+
+```
+library(data.frame)
+```
+
+Import the Jeopardy player dataset and name variables.
+
+```{r}
+usplayerswithsoc <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsoc.csv")
+
+id <- usplayerswithsoc$ID
+name <- usplayerswithsoc$name
+year <- usplayerswithsoc$year
+occ <- usplayerswithsoc$occ
+loc <- usplayerswithsoc$loc
+numgames <- usplayerswithsoc$numgames
+winnings <- usplayerswithsoc$totalwinnings
+state <- usplayerswithsoc$state
+studentflag <- usplayerswithsoc$studentflag
+soc <- usplayerswithsoc$SOC
+main <- usplayerswithsoc$main
+sub <- usplayerswithsoc$sub
+```
+
+Make a new copy of the data to begin cleaning up.
+
+```{r}
+cleanplayers <- data.frame(id, name, year, occ, loc, numgames, winnings, state, soc, main, sub)
+
+```
+
+Convert quantitative variables to numeric
+
+```{r}
+cleanplayers$year <- as.numeric(cleanplayers$year)
+cleanplayers$winnings <- as.numeric(cleanplayers$winnings)
+cleanplayers$numgames <- as.numeric(cleanplayers$numgames)
+
+```
+
+Replace bad year values to NA
+There are some invalid years both above and below real dates
+
+```{r}
+cleanplayers$year [cleanplayers$year < 1950] <- NA
+cleanplayers$year [cleanplayers$year > 2015] <- NA
+
+```
+
+Replace other coded missing items as NA.
+Sub SOC values coded as 9999 are not replaced with NA because 56-9999 would be valid.
+Cases missing mains will be thrown out in a later stage.
+
+```{r}
+cleanplayers$soc[cleanplayers$soc == ''] <- NA
+cleanplayers$main[cleanplayers$main == '9999'] <- NA
+```
+
+Create anoter version of the player data frame only containing players without NA values, and reassign variables.
+This reduced the total number of players for analysis to about 5,000.
+
+```{r}
+cleanplayersnoNA <- na.omit(cleanplayers)
+
+id <- cleanplayersnoNA$ID
+name <- cleanplayersnoNA$name
+year <- cleanplayersnoNA$year
+occ <- cleanplayersnoNA$occ
+loc <- cleanplayersnoNA$loc
+numgames <- cleanplayersnoNA$numgames
+winnings <- cleanplayersnoNA$totalwinnings
+state <- cleanplayersnoNA$state
+studentflag <- cleanplayersnoNA$studentflag
+soc <- cleanplayersnoNA$soc
+main <- cleanplayersnoNA$main
+sub <- cleanplayersnoNA$sub
+```
+
+Create a barplot to preview the distribution of main codes among the remaining players.
+
+```{r}
+barplot(table(main),cex.axis=0.5)
+```
+
+Create a summary of the cleaned data set.
+
+```{r}
+summary(cleanplayersnoNA)
+```
+
+Aggregate the average amount of winnings by main group.
+
+```{r}
+
+playersagg <- as.data.frame(cleanplayersnoNA[, mean(cleanplayersnoNA.winnings, na.rm = TRUE),by = cleanplayersnoNA.main])
+
+aggmain <- playersagg$cleanplayersnoNA.main
+aggwinavg <- playersagg$V1
+
+dotchart(aggwinavg, labels = aggmain, cex=.7)
+```
+
+There are a total of `r length(cleanplayersnoNA$id)` players remaining within the dataset after omitting those with missing values.  
+
+play2013 <- subset(cleanplayersnoNA, year == 2013)
+
+boxplot(play2013$winnings ~ play2013$main, data = play2013)
+
+barplot(table(play2013$winnings, play2013$main))
+
