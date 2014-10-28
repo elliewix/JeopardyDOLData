@@ -11,6 +11,16 @@ options("scipen"=999)
 ```
 
 
+```{r echo = F}
+
+rawplayers <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsoc.csv")
+
+```
+
+A total of `r length(rawplayers$id)` players were scraped 
+
+
+
 ```{r echo =FALSE}
 
 # Import the Jeopardy player dataset and name variables.
@@ -126,9 +136,9 @@ attach(justwinnings)
 ```
 
 ```{r echo = F}
- winningagg <- aggregate(justwinnings$cleanplayersnoNA.winnings, list( main = justwinnings$cleanplayersnoNA.main), mean)
+ #winningagg <- aggregate(cleanperson, by = list( main = justwinnings$cleanplayersnoNA.main), mean)
 
-dotchart(winningagg$x, labels = winningagg$main, cex=.7)
+#dotchart(winningagg$x, labels = winningagg$main, cex=.7)
 #playersagg <- data.table(cleanplayersnoNA.main, cleanplayersnoNA.winnings)
 #playersagg <- as.data.frame(playersagg[, mean(cleanplayersnoNA.winnings, na.rm = TRUE),by = cleanplayersnoNA.main])
 
@@ -168,7 +178,7 @@ barplot(table(cleanplayersnoNA$main, cleanplayersnoNA$numgames), col=c("darkblue
 
 boxplot(justone$winnings ~ justone$main, data = justone)
 
-boxplot(morethanone$winnings ~ morethanone$main, data = morethanone)
+boxplot(morethanone$winnings ~ morethanone$state, data = morethanone)
 
 nokenmroethanone <- subset(morethanone, id != '661')
 

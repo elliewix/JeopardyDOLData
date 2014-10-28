@@ -1,14 +1,1 @@
-ID,name,year,occ,loc,state,studentflag,SOC,main,sub
-259,Peter Severson,2005,senior,"Sioux Falls, South Dakota",south dakota,TRUE,56-MiscStudent,56,MiscStudent
-4746,Grant Garrigan,2008,real estate broker,"Highmore, South Dakota",south dakota,,41-9021,41,9021
-4600,Lisa Thimjon,2000,sophomore at Luther College,"Sioux Falls, South Dakota",south dakota,TRUE,56-MiscStudent,56,MiscStudent
-1138,Eric Newhouse,1989,director of technical assistance,"Vermillion, South Dakota",south dakota,,,9999,9999
-4761,Abigail Rosenthal,2008,graduate student,"Sioux Falls, South Dakota",south dakota,,56-GradStu,56,GradStu
-6455,Sara Kniffen,2009,graduate student,"Vermillion, South Dakota",south dakota,,56-GradStu,56,GradStu
-2421,Becky Hudson,2003,administrative support person,"Sioux Falls, South Dakota",south dakota,,,9999,9999
-1480,Jennifer Tobias-Turner,1997,retailer & importer,"Rapid City, South Dakota",south dakota,,,9999,9999
-4694,Lynn McAleece,1999,program buyer,"Sioux Falls, South Dakota",south dakota,,,9999,9999
-1313,Kelly Croissant,2005,emergency medical technician,"Sioux Falls, South Dakota",south dakota,,,9999,9999
-3617,Rita Schwab-Parcel,2007,clinical information support specialist,"Sioux Falls, South Dakota",south dakota,,,9999,9999
-7831,Jody Clark,2012,retail associate,"Garretson, South Dakota",south dakota,,,9999,9999
-3809,Glenda Kendrick,1997,speech writer,"Rapid City, South Dakota",south dakota,,,9999,9999
+ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub

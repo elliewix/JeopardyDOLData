@@ -187,7 +187,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 174,Bill Unterborn,1998,visual merchandiser,"Palmyra, New York",3,24600,new york,,27-1026,27,1026
 173,Eric Swanson,1998,data coordinator,"Washington, D.C",1,7700,washington,,,9999,9999
 172,Cathy Shambaugh,1998,sixth grade teacher,"Berea, Ohio",1,4395,ohio,,25-MiscTeacher,25,MiscTeacher
-171,"Zeke Sevilla, Jr.",111990,lawyer,"Vienna, Virginia",2,12000,virginia,,23-1011,23,1011
+171,"Zeke Sevilla, Jr.",1987,lawyer,"Vienna, Virginia",2,12000,virginia,,23-1011,23,1011
 170,Keith Walker,1987,attorney,"Pomona, California",3,10500,california,,23-1011,23,1011
 7218,Lindsey Thiesfeld,2011,sophomore,"Clarendon Hills, Illinois",2,30802,illinois,TRUE,56-MiscStudent,56,MiscStudent
 7219,Idrees Kahloon,2011,junior,"Lexington, Kentucky",2,54000,kentucky,TRUE,56-MiscStudent,56,MiscStudent
@@ -598,7 +598,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 5386,Cassie Hill,1999,recent graduate,the University of Mary Washington,2,10402,washington,,58-RecentGrad,58,RecentGrad
 3227,Mary Beth Jones,2001,attorney,"Bowie, Maryland",2,14000,maryland,,23-1011,23,1011
 797,Jim Tompkins-MacLaine,1989,musician,"Tiffin, Ohio",1,1,ohio,,27-2042,27,2042
-796,Peggi Malys,101990,medical student,"Orlando, Florida",3,10800,florida,,11-MedicalStu,11,MedicalStu
+796,Peggi Malys,1989,medical student,"Orlando, Florida",3,10800,florida,,11-MedicalStu,11,MedicalStu
 795,Joe Roberts,1989,director of planning & building,"Perth Amboy, New Jersey",1,9001,new jersey,,,9999,9999
 794,Bill Nyden,1989,computer programmer and analyst,"Mountain View, California",2,24802,california,,15-1131CU,15,1131CU
 793,Fran Pipp,1989,psychologist,"Dexter, Michigan",1,2200,michigan,,,9999,9999
@@ -941,7 +941,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 634,Michael Rooney,1999,college instructor,"Pasadena, California",10,88000,california,,25-Prof,25,Prof
 635,Lee Lassiter,2000,computer programmer,"Topeka, Kansas",7,78400,kansas,,15-1131,15,1131
 636,Robin Carroll,2000,research assistant,"Marietta, Georgia",16,240000,georgia,,,9999,9999
-637,Bob Verini,11990,director of academics for a national test preparation company,"Los Angeles, California",16,172784,california,,,9999,9999
+637,Bob Verini,1987,director of academics for a national test preparation company,"Los Angeles, California",16,172784,california,,,9999,9999
 1447,Kathy Petras,1997,writer,"New York City, New York",1,7200,new york,,27-Writer,27,Writer
 1446,Robert Van Newkirk,1997,art director,"Albuquerque, New Mexico",1,8100,new mexico,,27-1011,27,1011
 1113,Chris Capozzola,1998,graduate student,"Washington, D.C",2,27000,washington,,56-GradStu,56,GradStu
@@ -1339,10 +1339,10 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 871,Marielsa Ruiz,2001,flight attendant,"New York, New York",1,0,new york,,,9999,9999
 4592,Chad Belyeu,2008,film student,"Groves, Texas",1,5999,texas,,56-MiscStudent,56,MiscStudent
 2740,Debbie May,1988,teacher,"Mount Carmel, Pennsylvania",1,0,pennsylvania,,25-MiscTeacher,25,MiscTeacher
-2743,Ouida Rellstab,11990,teacher,"New Orleans, Louisiana",7,74907,louisiana,,25-MiscTeacher,25,MiscTeacher
+2743,Ouida Rellstab,1989,teacher,"New Orleans, Louisiana",7,74907,louisiana,,25-MiscTeacher,25,MiscTeacher
 2742,Steve Morris,1988,writer,"Los Angeles, California",1,15900,california,,27-Writer,27,Writer
-2745,Bruce Naegeli,11990,law librarian,"Phoenix, Arizona",8,212800,arizona,,25-4021,25,4021
-2744,Steve Rogitz,11990,operations manager,"Torrance, California",6,42000,california,,11-1021,11,1021
+2745,Bruce Naegeli,1988,law librarian,"Phoenix, Arizona",8,212800,arizona,,25-4021,25,4021
+2744,Steve Rogitz,1985,operations manager,"Torrance, California",6,42000,california,,11-1021,11,1021
 2031,Andrea Yanes,2001,high school biology teacher,"Brookline, Massachusetts",1,6900,massachusetts,,25-2031,25,2031
 2030,Kathy Widmayer,2001,systems project manager,"Moorestown, New Jersey",1,7500,new jersey,,,9999,9999
 4844,Adil Karim,1999,graduate student,"Santa Barbara, California",1,5001,california,,56-GradStu,56,GradStu
@@ -1596,11 +1596,11 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 3265,Steve DiGiulio,2004,senior account executive,"Washington Township, New Jersey",1,0,new jersey,TRUE,56-MiscStudent,56,MiscStudent
 5798,Marc Goldenberg,2002,economist,"Miami Beach, Florida",3,16800,florida,,19-3011,19,3011
 3264,Deirdre Basile,2004,stay-at-home mom,"Ridgefield, Connecticut",1,12000,connecticut,,StayAtHome,StayAtHome,9999
-339,Jeff Richmond,111990,attorney,"Los Angeles, California",6,91194,california,,23-1011,23,1011
+339,Jeff Richmond,1988,attorney,"Los Angeles, California",6,91194,california,,23-1011,23,1011
 3267,Susan Ferrari,2007,graduate student,"Chicago, Illinois",1,3800,illinois,,56-GradStu,56,GradStu
 335,Kermin Fleming,2004,junior at Carnegie Mellon University,"Lexington, Kentucky",6,189252,kentucky,TRUE,56-MiscStudent,56,MiscStudent
 334,Mark Eckard,2001,entrepreneur,"Bedford, Massachusetts",9,160200,massachusetts,,,9999,9999
-337,Sandra Gore,111990,corporate researcher,"Berkeley, California",7,110614,california,,,9999,9999
+337,Sandra Gore,1987,corporate researcher,"Berkeley, California",7,110614,california,,,9999,9999
 336,Jack Archey,1999,actor and writer,"Los Angeles, California",7,123207,california,,,9999,9999
 330,Stephen Lebowitz,1988,physician,"Los Angeles, California",1,0,california,,29-Doctor,29,Doctor
 333,Lance Johnson,1998,model aircraft engine technician,"Champaign, Illinois",8,84792,illinois,,,9999,9999
@@ -1647,7 +1647,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 2010,Steve Friedman,2006,writer,"Los Angeles, California",1,2799,california,,27-Writer,27,Writer
 4864,Paul Risner,1999,lawyer,"Sarasota, Florida",2,19600,florida,,23-1011,23,1011
 2012,Deborah Van Ness,2000,stay-at-home mom,"New City, New York",1,-100,new york,,StayAtHome,StayAtHome,9999
-1937,Bob Verini,11990,"playwright, actor, and director","New York City, New York",16,172784,new york,,,9999,9999
+1937,Bob Verini,1987,"playwright, actor, and director","New York City, New York",16,172784,new york,,,9999,9999
 9035,Kristin McAuliffe,2014,higher-education administrator,"Brighton, Massachusetts",1,1,massachusetts,,,9999,9999
 9038,Donna Innes,2014,criminal defense attorney,"Kalamazoo, Michigan",1,6800,michigan,,,9999,9999
 9039,Dilip Rajagopalan,2014,data scientist,"Newtown Square, Pennsylvania",1,399,pennsylvania,,,9999,9999
@@ -1703,8 +1703,8 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 4005,Leslie Frates,1991,Spanish teacher,"Hayward, California",11,77000,california,,25-1124,25,1124
 4006,Susan Sanchez,1986,schoolteacher,"Newton Center, Massachusetts",1,5100,massachusetts,,25-2021,25,2021
 4007,Randy Amasia,1986,editorial analyst,"Los Angeles, California",2,13800,california,,,9999,9999
-3971,Michael Rankins,101990,minister and sales representative,"Rohnert Park, California",5,69005,california,,,9999,9999
-3970,Keith Bell,101990,research analyst,"Alexandria, Virginia",2,0,virginia,,,9999,9999
+3971,Michael Rankins,1988,minister and sales representative,"Rohnert Park, California",5,69005,california,,,9999,9999
+3970,Keith Bell,1987,research analyst,"Alexandria, Virginia",2,0,virginia,,,9999,9999
 3973,Greg Peterson,2007,senior,"Park Ridge, Illinois",4,88888,illinois,TRUE,56-MiscStudent,56,MiscStudent
 3975,Meryl Federman,2007,senior,"Livingston, New Jersey",4,88000,new jersey,TRUE,56-MiscStudent,56,MiscStudent
 3974,Andy Hutchins,2007,senior,"Rockledge, Florida",2,61602,florida,TRUE,56-MiscStudent,56,MiscStudent
@@ -1870,8 +1870,8 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 356,Leszek Pawlowicz,1991,computer consultant,"Flagstaff, Arizona",10,154010,arizona,,15-1131CU,15,1131CU
 355,Tad Carithers,2000,attorney,"New York City, New York",11,116600,new york,,23-1011,23,1011
 354,Al Lin,1993,law professor,"Davis, California",3,31203,california,,,9999,9999
-353,Bruce Seymour,131990,writer,"Piedmont, California",9,136710,california,,27-Writer,27,Writer
-352,Sandra Gore,111990,researcher,"Boston, Massachusetts",7,110614,massachusetts,,,9999,9999
+353,Bruce Seymour,1987,writer,"Piedmont, California",9,136710,california,,27-Writer,27,Writer
+352,Sandra Gore,1987,researcher,"Boston, Massachusetts",7,110614,massachusetts,,,9999,9999
 351,Michael Block,1988,student and winner of the 1988 Teen Tournament,"Staten Island, New York",5,56005,new york,,56-MiscStudent,56,MiscStudent
 350,John Beck,2003,creative director,"Torrance, California",8,249600,california,,,9999,9999
 7508,Dave Story,1992,documentary researcher,"Los Angeles, California",1,2100,california,,,9999,9999
@@ -1914,12 +1914,12 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 2789,Romaine White,1997,lawyer,"Mountain Park, Georgia",1,0,georgia,,23-1011,23,1011
 2788,Barry Koron,1997,musician,"San Francisco, California",1,9801,california,,27-2042,27,2042
 2079,Craig Westphal,2006,paramedic,"Tucson, Arizona",8,212800,arizona,,29-2041,29,2041
-2078,Bruce Seymour,131990,writer,"Piedmont, California",9,136710,california,,27-Writer,27,Writer
+2078,Bruce Seymour,1987,writer,"Piedmont, California",9,136710,california,,27-Writer,27,Writer
 2073,Roberta Ellington,2006,marketing coordinator,"Tustin, California",3,52500,california,,,9999,9999
 2072,Quinn Saunders,2006,filmmaker,"Lumberton, New Jersey",1,6399,new jersey,,,9999,9999
 2071,Cindy Olson,2000,dermatologist,"Minneapolis, Minnesota",1,700,minnesota,,29-1069,29,1069
 2070,Bill Wilcox,2000,project manager,"San Diego, California",1,3000,california,,57-ProjMgr,57,ProjMgr
-2077,Dave Traini,121990,high school administrator,"Medford Lakes, New Jersey",12,175212,new jersey,,,9999,9999
+2077,Dave Traini,1986,high school administrator,"Medford Lakes, New Jersey",12,175212,new jersey,,,9999,9999
 2076,Jessica Tanner,2006,graduate student,"Cambridge, Massachusetts",1,5599,massachusetts,,56-GradStu,56,GradStu
 2075,Kerry Rucidlo,2006,secretary,"New York, New York",1,10,new york,,,9999,9999
 2074,Ron Landers,2000,lawyer,"Chattanooga, Tennessee",1,0,tennessee,,23-1011,23,1011
@@ -1997,9 +1997,9 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 4021,Scott Gillispie,1991,graduate student and College Tournament winner,"Atlanta, Georgia",5,106500,georgia,,56-MiscStudent,56,MiscStudent
 4028,Hal Barron,1999,college professor,"Altadena, California",2,18002,california,,25-Prof,25,Prof
 4029,Judith Martin Straw,1999,writer and bookseller,"Santa Monica, California",2,28600,california,,,9999,9999
-3999,Sandy Gore,111990,corporate consultant,"Los Angeles, California",7,110614,california,,59-Consultant,59,Consultant
-3998,Jeff Richmond,111990,law student,"West Hollywood, California",6,91194,california,,23-LawStudent,23,LawStudent
-3996,Zeke Sevilla Jr.,111990,lawyer,"Vienna, Virginia",2,12000,virginia,,23-1011,23,1011
+3999,Sandy Gore,1987,corporate consultant,"Los Angeles, California",7,110614,california,,59-Consultant,59,Consultant
+3998,Jeff Richmond,1988,law student,"West Hollywood, California",6,91194,california,,23-LawStudent,23,LawStudent
+3996,Zeke Sevilla Jr.,1987,lawyer,"Vienna, Virginia",2,12000,virginia,,23-1011,23,1011
 3995,Kristiana Henderson,2007,junior,"Kent, Washington",1,799,washington,TRUE,56-MiscStudent,56,MiscStudent
 3994,Tommy Maranges,2007,junior,"Fort Lauderdale, Florida",1,800,florida,TRUE,56-MiscStudent,56,MiscStudent
 3993,Kyle Neblett,2007,senior,"Beaverton, Oregon",4,60000,oregon,TRUE,56-MiscStudent,56,MiscStudent
@@ -2015,7 +2015,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 294,Ron Labuguen,2000,family physician,"Richmond, Virginia",1,6601,virginia,,29-1062,29,1062
 295,Tracey Marcus,2000,education coordinator,"Homer City, Pennsylvania",1,6600,pennsylvania,,,9999,9999
 292,Rachael Schwartz,1993,lawyer,"Washington, D.C",9,88200,washington,,23-1011,23,1011
-293,Michael Rankins,101990,minister and writer,"Rohnert Park, California",5,69005,california,,,9999,9999
+293,Michael Rankins,1988,minister and writer,"Rohnert Park, California",5,69005,california,,,9999,9999
 290,Elizabeth Salinas,1997,historic interpreter,"Silver Spring, Maryland",4,52800,maryland,,,9999,9999
 291,John Genova,1985,teacher,"Granada Hills, California",2,0,california,,25-MiscTeacher,25,MiscTeacher
 5487,Steven Jones,2008,attorney,"Rocheport, Missouri",1,3400,missouri,,23-1011,23,1011
@@ -2183,7 +2183,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 6925,Barbara Jackson,1986,sales support manager,"Reseda, California",1,3598,california,,,9999,9999
 6141,Jocelyn Certner,2009,call center supervisor,"Schenectady, New York",1,800,new york,,,9999,9999
 6140,Liz Caccese,1985,generating station operator,"Van Nuys, California",3,12300,california,,,9999,9999
-6145,Bob Verini,11990,playwright and actor,"New York City, New York",16,172784,new york,,,9999,9999
+6145,Bob Verini,1987,playwright and actor,"New York City, New York",16,172784,new york,,,9999,9999
 6144,J.J. Fowell,1987,part-time pizza maker,"Hollywood, California",1,5000,california,,,9999,9999
 6149,Ellen Brown,2009,hospice medical director,"Palo Alto, California",1,-600,california,,,9999,9999
 8110,Jeannie Blanke,2012,insurance office manager,"Newbury Park, California",1,6400,california,,,9999,9999
@@ -2260,7 +2260,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 6960,Peter Bedrossian,1990,academic counselor,"Poughkeepsie, New York",1,8800,new york,,,9999,9999
 6965,Brian Barrett,1986,carpenter,"Venice, California",1,5,california,,,9999,9999
 8629,Dorothy Williams,1986,farmer,"Cleveland, Ohio",1,0,ohio,,,9999,9999
-6967,Dave Traini,121990,teacher,"Medford Lakes, New Jersey",12,175212,new jersey,,25-MiscTeacher,25,MiscTeacher
+6967,Dave Traini,1986,teacher,"Medford Lakes, New Jersey",12,175212,new jersey,,25-MiscTeacher,25,MiscTeacher
 6966,Elizabeth Charland,1986,water engineer,"Mount Vernon, Indiana",1,0,indiana,,,9999,9999
 8624,Robin Gillen,1987,graduate student,"Pittsburgh, Pennsylvania",1,2100,pennsylvania,,56-GradStu,56,GradStu
 6968,Fran Strykowski,1987,teacher,"Albany, New York",1,2400,new york,,25-MiscTeacher,25,MiscTeacher
@@ -2627,7 +2627,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 1831,Julie Spencer,1998,social worker,"Harbor Springs, Michigan",1,1000,michigan,,,9999,9999
 1836,Dan Lee,2006,training officer,"Las Vegas, Nevada",1,300,nevada,,,9999,9999
 3798,Tom Castelazo,1997,middle school teacher,"Fresno, California",3,8403,california,,,9999,9999
-1835,Steve Rogitz,11990,letter carrier,"Gardena, California",6,42000,california,,43-5052,43,5052
+1835,Steve Rogitz,1985,letter carrier,"Gardena, California",6,42000,california,,43-5052,43,5052
 3795,John Walsh,2007,writer,"Santa Monica, California",2,27800,california,,27-Writer,27,Writer
 3794,Heidi Sanchez,2007,college library director,"Bethpage, New York",3,63000,new york,,,9999,9999
 1838,Andrew Maly,1998,environmental engineer,"Bel Air, Maryland",7,42700,maryland,,17-2081,17,2081
@@ -2884,7 +2884,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 8662,Chris Byrne,1988,engineer,"Boston, Massachusetts",1,999,massachusetts,,17-MiscEngineer,17,MiscEngineer
 8663,Joe Myers,1988,advertising writer,"Wichita, Kansas",1,1998,kansas,,,9999,9999
 8664,Perry Barber,1988,baseball umpire,"New York City, New York",1,0,new york,,27-2023,27,2023
-8665,Jeff Richmond,111990,city planner,"West Hollywood, California",6,91194,california,,19-3051,19,3051
+8665,Jeff Richmond,1988,city planner,"West Hollywood, California",6,91194,california,,19-3051,19,3051
 8666,Bill Puskas,1991,lawyer,"Somerset, New Jersey",1,7599,new jersey,,23-1011,23,1011
 8667,Archie Parker,1991,data management specialist,"Merchantville, New Jersey",1,10600,new jersey,,,9999,9999
 8668,Mike Heberling,1991,marketing analyst,"Temple, Pennsylvania",1,7600,pennsylvania,,13-1161,13,1161
@@ -4366,7 +4366,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 2691,Eileen Davenport,1997,graduate student,"Chicago, Illinois",1,2500,illinois,,56-GradStu,56,GradStu
 2690,Liz Channon,2006,copy editor,"Newport News, Virginia",1,19400,virginia,,27-3041,27,3041
 1142,Eddie Timanus,1999,sports reporter,"Arlington, Virginia",10,144000,virginia,,,9999,9999
-1141,Bob Verini,11990,film journalist and test prep teacher,"Los Angeles, California",16,172784,california,,25-MiscTeacher,25,MiscTeacher
+1141,Bob Verini,1987,film journalist and test prep teacher,"Los Angeles, California",16,172784,california,,25-MiscTeacher,25,MiscTeacher
 1146,Pranita Ramakrishnan,2005,,"Centreville, Virginia",1,-400,virginia,,,9999,9999
 1147,Maria Canavan,1996,audiologist,"Warwick, New York",1,7800,new york,,29-1181,29,1181
 1144,Andrew Vogl,2005,,"Yonkers, New York",1,20399,new york,,,9999,9999
@@ -4479,13 +4479,13 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 4811,Kit Salisbury,1999,furniture salesman,"Lake Worth, Florida",2,24400,florida,,,9999,9999
 4810,Paul Salcido,1999,insurance examiner,"Woodland Hills, California",1,1,california,,,9999,9999
 168,Jonathan Fellows,1987,legislative assistant,"Bellevue, Washington",2,12000,washington,,,9999,9999
-169,Bob Verini,11990,playwright/actor,"New York, New York",16,172784,new york,,,9999,9999
+169,Bob Verini,1987,playwright/actor,"New York, New York",16,172784,new york,,,9999,9999
 164,Frank Hughes,1986,account executive,"Torrance, California",2,20000,california,,,9999,9999
 165,Michael Galvin,1987,student,"Shaker Heights, Ohio",3,25800,ohio,,56-MiscStudent,56,MiscStudent
 166,Eugene Finerman,1987,writer,"Chicago, Illinois",8,31200,illinois,,27-Writer,27,Writer
-167,Keith Bell,101990,personnel specialist,"Alexandria, Virginia",2,0,virginia,,13-1071,13,1071
+167,Keith Bell,1987,personnel specialist,"Alexandria, Virginia",2,0,virginia,,13-1071,13,1071
 160,John Podhoretz,1987,writer,"Washington, D.C",1,1599,washington,,27-Writer,27,Writer
-161,Dave Traini,121990,teacher,"Medford Lakes, New Jersey",12,175212,new jersey,,25-MiscTeacher,25,MiscTeacher
+161,Dave Traini,1986,teacher,"Medford Lakes, New Jersey",12,175212,new jersey,,25-MiscTeacher,25,MiscTeacher
 162,Aaron Thompson,2004,executive assistant,"Washington, D.C",6,120000,washington,,43-6011,43,6011
 163,Richard Cordray,1987,judicial clerk,"Grove City, Ohio",8,62400,ohio,,23-1012,23,1012
 4815,Ryan Thiel,1999,sign language interpreter,"Minneapolis, Minnesota",4,51204,minnesota,,,9999,9999
@@ -4535,7 +4535,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 807,Robert Levy,1998,optometrist,"Alexandria, Virginia",1,0,virginia,,29-1041,29,1041
 8856,Matthew Linnabary,2014,phlebotomist,"Wichita, Kansas",1,799,kansas,,31-9097,31,9097
 805,Cigus Vanni,1988,psychologist,"South Amboy, New Jersey",4,16000,new jersey,,,9999,9999
-804,Ouida Rellstab,11990,teacher and Seniors Tournament winner,"Metairie, Louisiana",7,74907,louisiana,,25-MiscTeacher,25,MiscTeacher
+804,Ouida Rellstab,1989,teacher and Seniors Tournament winner,"Metairie, Louisiana",7,74907,louisiana,,25-MiscTeacher,25,MiscTeacher
 8604,Richard Heft,1987,screenwriter,"North Hollywood, California",1,3500,california,,27-3043,27,3043
 5274,George Hicks,2002,law student,"Cambridge, Massachusetts",2,43996,massachusetts,,23-LawStudent,23,LawStudent
 5275,Sandra Alboum,2002,translator,"Arlington, Virginia",3,58200,virginia,,27-3091,27,3091
@@ -4858,7 +4858,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 3906,Jeff Krause,1999,Navy aviator,"Allentown, Pennsylvania",1,18000,pennsylvania,,,9999,9999
 3907,Jessica Eyde,2007,interior decorator,"Fort Worth, Texas",1,24800,texas,,27-1025,27,1025
 3900,Gary Vey,1998,prosecuting attorney,"Lawrenceville, Georgia",1,1900,georgia,,,9999,9999
-3901,Burns Cameron,61990,realtor,"Standish, Maine",1,22800,maine,,41-9022,41,9022
+3901,Burns Cameron,1990,realtor,"Standish, Maine",1,22800,maine,,41-9022,41,9022
 3902,Liz Caccese,1985,librarian,"Van Nuys, California",3,12300,california,,25-4021CU,25,4021CU
 3908,Wilson Rickerson,2007,renewable energy consultant,"Falls Church, Virginia",1,0,virginia,,59-Consultant,59,Consultant
 3909,Holly Owens,2006,physician,"Tulsa, Oklahoma",4,23600,oklahoma,,29-Doctor,29,Doctor
@@ -5544,7 +5544,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 3234,Matthew Laflin,2001,law student,"Satellite Beach, Florida",1,0,florida,,23-LawStudent,23,LawStudent
 641,David Venderbush,1994,attorney,"Los Angeles, California",2,2,california,,23-1011,23,1011
 8912,Phoebe Juel,1993,attorney,"Cranberry Township, Pennsylvania",6,116400,pennsylvania,,23-1011,23,1011
-8913,Bob Verini,11990,academic director for a test preparation company,"Los Angeles, California",16,172784,california,,,9999,9999
+8913,Bob Verini,1987,academic director for a test preparation company,"Los Angeles, California",16,172784,california,,,9999,9999
 8910,Frank Spangenberg,1990,police officer,"New York City, New York",17,268583,new york,,33-3051CU,33,3051CU
 8911,Mark Lowenthal,1988,intelligence educator,"Reston, Virginia",9,86400,virginia,,,9999,9999
 8916,Whitney Thompson,2014,junior at the University of Oklahoma,"Tulsa, Oklahoma",2,20000,oklahoma,TRUE,56-MiscStudent,56,MiscStudent
@@ -5615,11 +5615,11 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 308,Doug Molitor,1987,writer,"Altadena, California",3,30000,california,,27-Writer,27,Writer
 309,Tom Cubbage,1989,attorney,"Oklahoma City, Oklahoma",10,154000,oklahoma,,23-1011,23,1011
 300,Jim Holton,2000,history professor,"Lakeland, Florida",1,2400,florida,,,9999,9999
-301,Steve Rogitz,11990,trucking company manager,"Gardena, California",6,42000,california,,,9999,9999
+301,Steve Rogitz,1985,trucking company manager,"Gardena, California",6,42000,california,,,9999,9999
 302,Roy Holliday,1988,radiologist,"Nyack, New York",4,2000,new york,,29-1069,29,1069
 303,Janet Wong,2000,development officer for a museum,"Hoboken, New Jersey",6,55800,new jersey,,,9999,9999
 304,Alan Bailey,2001,playwright and director,"North Hills, California",8,81608,california,,,9999,9999
-305,David Traini,121990,high school administrator,"Moorestown, New Jersey",12,175212,new jersey,,,9999,9999
+305,David Traini,1986,high school administrator,"Moorestown, New Jersey",12,175212,new jersey,,,9999,9999
 306,Mark McDermott,1989,desktop publisher,"Shaler, Iowa",3,11400,iowa,,43-9031,43,9031
 307,Tom Nosek,1992,engineer,"Torrance, California",11,70620,california,,17-MiscEngineer,17,MiscEngineer
 472,Joyce Sturgill,1997,remedial English teacher,"Fort Pierce, Florida",2,14002,florida,,25-MiscTeacher,25,MiscTeacher
@@ -5773,7 +5773,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 3961,Jolyn Dunavant,1998,budget administrator,"Lancaster, Texas",1,0,texas,,,9999,9999
 7510,Hannah Wachs,2011,elementary school teacher,"Irvine, California",1,1999,california,,25-2021,25,2021
 5799,Erin Butler,2002,recent college graduate,"Stewartsville, New Jersey",1,3999,new jersey,,58-RecentGrad,58,RecentGrad
-3969,Peggi Malys,101990,medical student,"Atlanta, Georgia",3,10800,georgia,,11-MedicalStu,11,MedicalStu
+3969,Peggi Malys,1989,medical student,"Atlanta, Georgia",3,10800,georgia,,11-MedicalStu,11,MedicalStu
 3638,Andrea Ozment,2007,nurse and freelance writer,"New Haven, Connecticut",1,20000,connecticut,,,9999,9999
 3639,William Lee,2007,software engineer,"Vero Beach, Florida",2,41600,florida,,15-1131CU,15,1131CU
 3636,Ann Cole,2007,retired medical technologist,"Albuquerque, New Mexico",1,1401,new mexico,,58-Retired,58,Retired
@@ -5952,7 +5952,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 324,Dan Melia,1997,college professor,"Berkeley, California",13,166400,california,,25-Prof,25,Prof
 325,Jeremy Bate,2000,emergency medical technician and writer,"Tujunga, California",10,105000,california,,,9999,9999
 328,Kate Waits,1987,law professor,"Albany, New York",5,71005,new york,,,9999,9999
-329,Bruce Naegeli,11990,librarian,"Phoenix, Arizona",8,212800,arizona,,25-4021CU,25,4021CU
+329,Bruce Naegeli,1988,librarian,"Phoenix, Arizona",8,212800,arizona,,25-4021CU,25,4021CU
 1595,Chris Moylan,1997,scientist,"Pleasantville, New York",1,6100,new york,,,9999,9999
 6139,Larry Floyd,1985,accounting clerk,"Bridgeton, Maine",2,17200,maine,,,9999,9999
 1594,Emily Scott,1997,independent graphic designer,"Cambridge, Massachusetts",1,4200,massachusetts,,,9999,9999
@@ -6243,7 +6243,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 340,Billy Baxter,1992,attorney,"Richmond, Virginia",4,0,virginia,,23-1011,23,1011
 341,Bernard Holloway,2002,sophomore at the University of North Carolina at Chapel Hill,"Chapel Hill, North Carolina",5,0,north carolina,TRUE,56-MiscStudent,56,MiscStudent
 342,Peggy Kennedy,1988,forensic toxicologist and winner of the 1988 Seniors Tournament,"Menands, New York",2,27600,new york,,,9999,9999
-343,Michael Rankins,101990,minister and writer,"Rohnert Park, California",5,69005,california,,,9999,9999
+343,Michael Rankins,1988,minister and writer,"Rohnert Park, California",5,69005,california,,,9999,9999
 348,Carolyn Cracraft,1999,grad student at the University of California-Berkeley,"Berkeley, California",7,50400,california,,56-MiscStudent,56,MiscStudent
 349,Tom Nosek,1992,aerospace engineer,"Torrance, California",11,70620,california,,17-2011,17,2011
 7519,Joe Koster,2011,telephone technician,"Pelham, New Hampshire",2,50402,new hampshire,,,9999,9999
@@ -6484,7 +6484,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 5501,Shirley Brewer,2003,elementary school teacher,"Guernsey, Wyoming",1,2200,wyoming,,25-2021,25,2021
 542,Karen Douglas,1997,librarian,"Manassas, Virginia",1,-2400,virginia,,25-4021CU,25,4021CU
 543,Kurt Bray,1994,scientist,"Oceanside, California",3,16050,california,,,9999,9999
-540,Bruce Naegeli,11990,retired law librarian,"Phoenix, Arizona",8,212800,arizona,,58-Retired,58,Retired
+540,Bruce Naegeli,1988,retired law librarian,"Phoenix, Arizona",8,212800,arizona,,58-Retired,58,Retired
 541,Scott Davidson,1997,electrical engineer,"Fremont, California",1,50,california,,17-2071,17,2071
 546,Mike McClain,1985,financial consultant,"Alliance, Ohio",1,-600,ohio,,13-2011Other,13,2011Other
 547,Ayofemi Stowe,1985,design engineer,"Boston, Massachusetts",1,3000,massachusetts,,,9999,9999
@@ -6747,7 +6747,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 8993,Emily Waltenbaugh,2014,library volunteer coordinator,"Nashville, Tennessee",1,3150,tennessee,,,9999,9999
 3788,Heather O'Neill,1997,program assistant,"Tarboro, North Carolina",3,31803,north carolina,,,9999,9999
 8991,John Gardner,1991,technical data manager,"Lost Nation, Iowa",1,5700,iowa,,,9999,9999
-8996,Bruce Naegeli,11990,librarian,"Phoenix, Arizona",8,212800,arizona,,25-4021CU,25,4021CU
+8996,Bruce Naegeli,1988,librarian,"Phoenix, Arizona",8,212800,arizona,,25-4021CU,25,4021CU
 8997,Stephanie Jass,2012,history professor,"Milan, Michigan",11,187000,michigan,,,9999,9999
 1809,Samantha Moeschler,1998,managed care underwriter,"Phoenix, Arizona",1,2600,arizona,,,9999,9999
 1808,Suzan Reiner,2006,church office manager,"Long Island, New York",1,1000,new york,,,9999,9999
@@ -7324,7 +7324,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 8099,Jan Rishoi,2012,analytic software sales executive,"Ann Arbor, Michigan",1,4200,michigan,,,9999,9999
 8098,Rachel Shuman,2012,curriculum coordinator,"Silver Spring, Maryland",2,39200,maryland,,25-9031,25,9031
 1739,Pam Bybell,1998,homemaker,"West Medford, Massachusetts",1,100,massachusetts,,Unemployed,Unemployed,9999
-5239,Jeff Richmond,111990,law student,"West Hollywood, California",6,91194,california,,23-LawStudent,23,LawStudent
+5239,Jeff Richmond,1988,law student,"West Hollywood, California",6,91194,california,,23-LawStudent,23,LawStudent
 1567,Katie James,2006,sophomore,"Winchester, Virginia",1,7199,virginia,TRUE,56-MiscStudent,56,MiscStudent
 6659,Danny Vopava,2010,sophomore,the University of Wisconsin�River Falls,1,0,wisconsin,TRUE,56-MiscStudent,56,MiscStudent
 6658,Brian G. Hartz,2004,director and actor,"Indianapolis, Indiana",1,18400,indiana,,,9999,9999
