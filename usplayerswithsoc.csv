@@ -38,7 +38,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 2685,Susan Turi,2006,social worker,"Woodmere, New York",1,11599,new york,,,9999,9999
 2686,Monica Sousa,2006,junior high school teacher,"Fremont, California",1,11201,california,,25-2031,25,2031
 2687,Michael Green,2006,graduate student,"Tempe, Arizona",1,2700,arizona,,56-GradStu,56,GradStu
-2680,Jack Campion,1000,sales executive,"Los Angeles, California",2,3850,california,,,9999,9999
+2680,Jack Campion,1983,sales executive,"Los Angeles, California",2,2200,california,,,9999,9999
 2681,Chris Mazurek,2006,assistant professor,"Columbia, Missouri",7,82593,missouri,,25-Prof,25,Prof
 2682,Jason Stuart,2006,substitute teacher,"San Diego, California",1,4599,california,,25-3099,25,3099
 2683,Joan Nelson,2006,youth minister,"Richmond, Virginia",1,25100,virginia,,,9999,9999
@@ -3710,7 +3710,7 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 6032,Carl Lewis,1996,retired track and field athlete,"Los Angeles, California",1,0,california,,58-Retired,58,Retired
 6037,Elliott Rountree,2009,high school history and government teacher,"Marietta, Georgia",1,6300,georgia,,25-2031,25,2031
 6036,Susan Hankins,2009,project accountant,"Downey, California",2,54402,california,,,9999,9999
-2659,Cynthia Grove,125,,"Toledo, Ohio",2,4050,ohio,,,9999,9999
+2659,Cynthia Grove,1983,,"Toledo, Ohio",2,4150,ohio,,,9999,9999
 2658,Andrew Espinoza,2006,vice principal,"Emerson, New Jersey",2,33000,new jersey,,,9999,9999
 2652,Nate Budde,1999,senior,"Brush Prairie, Washington",1,0,washington,TRUE,56-MiscStudent,56,MiscStudent
 2651,Linda Sue Park,2006,children's author,"Rochester, New York",1,1200,new york,,,9999,9999
@@ -4030,8 +4030,8 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 2674,Peggy Nomland,2000,pharmaceutical representative,"San Diego, California",1,1399,california,,,9999,9999
 2677,Ginny Reynolds,2000,writer and production coordinator,"Patterson, New York",2,20000,new york,,,9999,9999
 2676,Susan Wozny,2000,speech pathologist,"West Orange, New Jersey",1,1000,new jersey,,29-1127,29,1127
-2679,Cynthia Grove,125,law clerk,"Toledo, Ohio",2,4050,ohio,,,9999,9999
-2678,Michael Malone,150,commercial property manager,"Baton Rouge, Louisiana",1,3150,louisiana,,,9999,9999
+2679,Cynthia Grove,1983,law clerk,"Toledo, Ohio",2,4150,ohio,,,9999,9999
+2678,Michael Malone,1984,commercial property manager,"Baton Rouge, Louisiana",1,5800,louisiana,,,9999,9999
 2929,James Zirlott,2002,business development manager,"Cumming, Georgia",1,0,georgia,,,9999,9999
 2928,Kevin Scott,2002,graduate student,"Columbus, Ohio",4,0,ohio,,56-GradStu,56,GradStu
 2921,Dan Cherkis,2002,software developer,"Richmond, Virginia",1,0,virginia,,15-1131CU,15,1131CU
@@ -4181,7 +4181,6 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 7882,Anna-Lise Santella,2012,editor and musicologist,"Trout Valley, Illinois",3,46200,illinois,,,9999,9999
 7885,Amy Paull,2012,stay-at-home mom,"The Woodlands, Texas",1,3599,texas,,StayAtHome,StayAtHome,9999
 7884,Lindsay Shields,2012,grants and contracts coordinator,"Sunnyside, New York",1,5100,new york,,,9999,9999
-7887,Jia-Rui Cook,2012,media relations specialist and science writer,"Los Angeles, California",1,4600,california,,,9999,9999
 7886,Matt Samberg,2012,attorney,"Pittsburgh, Pennsylvania",4,85600,pennsylvania,,23-1011,23,1011
 406,Mike Hill,1998,geologist,"Milwaukee, Wisconsin",1,3995,wisconsin,,19-2042,19,2042
 108,Christina Maes,2004,senior at the University of Wisconsin - Green Bay,"Green Bay, Wisconsin",1,400,wisconsin,TRUE,56-MiscStudent,56,MiscStudent
@@ -7006,8 +7005,8 @@ ID,name,year,occ,loc,numgames,totalwinnings,state,studentflag,SOC,main,sub
 2665,Neil Tesser,2000,jazz critic and author,"Chicago, Illinois",1,1,illinois,,,9999,9999
 2662,Benjamin Tomkins,2006,journalist,"Portland, Oregon",1,8200,oregon,,27-3022CU,27,3022CU
 2663,Tracy Parrish Wolfe,2006,stay-at-home mom,"Carmel, Indiana",2,60000,indiana,,StayAtHome,StayAtHome,9999
-2660,Jack Campion,1000,,"Los Angeles, California",2,3850,california,,,9999,9999
-2661,Karen Muranaka,575,,"Lomita, California",1,2125,california,,,9999,9999
+2660,Jack Campion,1983,,"Los Angeles, California",2,2200,california,,,9999,9999
+2661,Karen Muranaka,1983,,"Lomita, California",1,2125,california,,,9999,9999
 1829,John Dickas,2006,congressional staffer,"Portland, Oregon",1,18400,oregon,,,9999,9999
 1828,Lisa Levenson,2002,reporter,"New York, New York",1,4199,new york,,27-3022CU,27,3022CU
 1824,Russell Redder,2003,civil engineer,"Fort Worth, Texas",1,10000,texas,,17-2051,17,2051
