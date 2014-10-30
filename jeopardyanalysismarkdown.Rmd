@@ -7,131 +7,224 @@ output: html_document
 
 ```{r echo=FALSE}
 library("data.table")
+library(ggplot2)
 options("scipen"=999)
-```
-
-
-```{r echo = F}
-
-rawplayers <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsoc.csv")
 
 ```
-
-A total of `r length(rawplayers$id)` players were scraped 
-
 
 
 ```{r echo =FALSE}
 
-# Import the Jeopardy player dataset and name variables.
+usplayerswithsoc <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsocNODUPEdivreg.csv")
 
-usplayerswithsoc <- read.csv("~/GoogleDrive/_SODA/JeopardyDOLData/usplayerswithsocNODUPE.csv")
+# replace empty values with NA and assign to pretty names
 
+usplayerswithsoc$id [usplayerswithsoc$ID == ''] <- NA
 id <- usplayerswithsoc$ID
+
+usplayerswithsoc$name [usplayerswithsoc$name == ''] <- NA
 name <- usplayerswithsoc$name
+
+usplayerswithsoc$year [usplayerswithsoc$year== ''] <- NA
 year <- usplayerswithsoc$year
+
+usplayerswithsoc$occ [usplayerswithsoc$occ == ''] <- NA
 occ <- usplayerswithsoc$occ
+
+usplayerswithsoc$loc [usplayerswithsoc$loc == ''] <- NA
 loc <- usplayerswithsoc$loc
+
+usplayerswithsoc$numgames [usplayerswithsoc$numgames == ''] <- NA
 numgames <- usplayerswithsoc$numgames
+
+usplayerswithsoc$totalwinnings [usplayerswithsoc$totalwinnings == ''] <- NA
 winnings <- usplayerswithsoc$totalwinnings
+
+usplayerswithsoc$state [usplayerswithsoc$state == ''] <- NA
 state <- usplayerswithsoc$state
+
+usplayerswithsoc$studentflag [usplayerswithsoc$studentflag == ''] <- NA
 studentflag <- usplayerswithsoc$studentflag
+
+usplayerswithsoc$SOC [usplayerswithsoc$SOC == '' | usplayerswithsoc$SOC == '9999'] <- NA
 soc <- usplayerswithsoc$SOC
+
+usplayerswithsoc$main [usplayerswithsoc$main == '' | usplayerswithsoc$main == '9999'] <- NA
 main <- usplayerswithsoc$main
+
+usplayerswithsoc$sub [usplayerswithsoc$sub == ''] <- NA
+usplayerswithsoc$sub [usplayerswithsoc$main == '' | usplayerswithsoc$sub == '9999'] <- NA
 sub <- usplayerswithsoc$sub
+
+usplayerswithsoc$region [usplayerswithsoc$region == ''] <- NA
+region <- usplayerswithsoc$region
+
+usplayerswithsoc$division [usplayerswithsoc$division == ''] <- NA
+division <- usplayerswithsoc$division
+
+
 ```
 
+``` {r echo =FALSE}
 
 
-```{r echo =FALSE}
+# make cleanplayers table
 
-# Make a new copy of the data to begin cleaning up.
-cleanplayers <- data.frame(id, name, year, occ, loc, numgames, winnings, state, soc, main, sub)
-
-```
-
-
-
-```{r echo = F}
+cleanplayers <- data.frame(id, name, year, occ, loc, numgames, winnings, state, soc, main, sub, region, division)
 
 # Convert quantitative variables to numeric
 cleanplayers$year <- as.numeric(cleanplayers$year)
 cleanplayers$winnings <- as.numeric(cleanplayers$winnings)
 cleanplayers$numgames <- as.numeric(cleanplayers$numgames)
 
-```
-
-
-
-```{r echo = F}
-
-# Replace bad year values to NA
-#There are some invalid years both above and below real dates
+# replace possible bad values of years with NA
+# this shouldn't be the case with the most current code,
+# but possible that it may happen in the future.
 cleanplayers$year [cleanplayers$year < 1950] <- NA
 cleanplayers$year [cleanplayers$year > 2015] <- NA
 
-```
-
-
-
-```{r echo = F}
-
-# Replace other coded missing items as NA.
-# Sub SOC values coded as 9999 are not replaced with NA because 56-9999 would be valid.
-# Cases missing mains will be thrown out in a later stage.
-cleanplayers$soc[cleanplayers$soc == ''] <- NA
-cleanplayers$main[cleanplayers$main == '9999'] <- NA
-```
-
-
-
-```{r echo = F}
 #Create anoter version of the player data frame only containing players without NA values, and reassign variables.
 #This reduced the total number of players for analysis to about 5,000.
 
+
 cleanplayersnoNA <- na.omit(cleanplayers)
 
-id <- cleanplayersnoNA$ID
+id <- cleanplayersnoNA$id
 name <- cleanplayersnoNA$name
 year <- cleanplayersnoNA$year
 occ <- cleanplayersnoNA$occ
 loc <- cleanplayersnoNA$loc
 numgames <- cleanplayersnoNA$numgames
-winnings <- cleanplayersnoNA$totalwinnings
+winnings <- cleanplayersnoNA$winnings
 state <- cleanplayersnoNA$state
 studentflag <- cleanplayersnoNA$studentflag
 soc <- cleanplayersnoNA$soc
 main <- cleanplayersnoNA$main
 sub <- cleanplayersnoNA$sub
+divsion <- cleanplayersnoNA$division
+region <- cleanplayersnoNA$region
+
+# create the 2003 and after set
+
+after2003 <- subset(cleanplayersnoNA, year >= 2003)
+
+after2003noken <- subset(after2003, id != '661')
+noken <- subset(cleanplayersnoNA, id != '661')
+
+cleanplayersnoNA$after2003 <- NA
+cleanplayersnoNA$after2003 [cleanplayersnoNA$year >= 2003] <- "2003 and after"
+cleanplayersnoNA$after2003 [cleanplayersnoNA$year < 2003] <- "Before 2003"
+
+
 ```
 
-Plots to describe the basic data.
+There were a total of `r length(usplayerswithsoc$ID)` players imported.  After removing players with NA values within either their SOC or SOC Major codes, this becomes `r length(id)`.
 
-```{r echo = F}
-barplot(table(main), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players in major SOC codes", xlab = "Frequency", ylab = "Major code")
+```{r echo= F}
 
-barplot(table(state), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and reported home state", xlab = "Frequency")
+maxfreq <- function(var){
+  df <- data.frame(table(var))
+  max <-df[df$Freq == max(df$Freq), ]
+  return (max)
+}
 
-barplot(table(year), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games represented within each year", xlab = "Games", ylab = "Year")
+popcount <- length(id)
 
-barplot(table(numgames), horiz=F, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games won per player", xlab = "Games", ylab = "Player frequency")
-
-#hist(table(winnings),breaks =100, xlab = "Games", ylab = "Player frequency")
 ```
 
-Summary of the cleaned data set.
+
+# Descriptive statistics 
+###The most common occurances for categorial values
+
+| Variable | Value | Count |
+| -------- | ----- | ----- |
+| Occupation phrase | `r maxfreq(occ)[1]` | `r maxfreq(occ)[2]` |
+| Location phrase | `r maxfreq(loc)[1]` | `r maxfreq(loc)[2]` |
+| Controlled state value | `r maxfreq(state)[1]` | `r maxfreq(state)[2]` |
+| SOC code | `r maxfreq(soc)[1]` | `r maxfreq(soc)[2]` |
+| SOC Major code | `r maxfreq(main)[1]` | `r maxfreq(main)[2]` |
+| United States division | `r maxfreq(division)[1]` | `r maxfreq(division)[2]` |
+| United States region | `r maxfreq(region)[1]` | `r maxfreq(region)[2]` |
+
+###The descriptive statistics for quantitative variables for all players were:
+
+| Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | 
+| -------- | ------- | ------------ | ------ | ---- | ------------ | ------- |
+| Numer of games participated in  | `r min(numgames, na.rm=TRUE)` | `r quantile(numgames, na.rm=TRUE)[2]` | `r median(numgames, na.rm=TRUE)`  |  `r mean(numgames, na.rm=TRUE)` |  `r quantile(numgames, na.rm=TRUE)[4]` |  `r max(numgames, na.rm=TRUE)` |
+| Total winnings | `r min(winnings, na.rm=TRUE)` | `r quantile(winnings, na.rm=TRUE)[2]` | `r median(winnings, na.rm=TRUE)`  |  `r mean(winnings)` |  `r quantile(winnings, na.rm=TRUE)[4]` |  `r max(winnings, na.rm=TRUE)` |
+
+###The descriptive statistics for quantitative variables for players playing 2003 and after were:
+
+| Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | 
+| -------- | ------- | ------------ | ------ | ---- | ------------ | ------- |
+| Numer of games participated in  | `r min(after2003$numgames, na.rm=TRUE)` | `r quantile(after2003$numgames, na.rm=TRUE)[2]` | `r median(after2003$numgames, na.rm=TRUE)`  |  `r mean(after2003$numgames, na.rm=TRUE)` |  `r quantile(after2003$numgames, na.rm=TRUE)[4]` |  `r max(after2003$numgames, na.rm=TRUE)` |
+| Total winnings | `r min(after2003$winnings, na.rm=TRUE)` | `r quantile(after2003$winnings, na.rm=TRUE)[2]` | `r median(after2003$winnings, na.rm=TRUE)`  |  `r mean(after2003$winnings)` |  `r quantile(after2003$winnings, na.rm=TRUE)[4]` |  `r max(after2003$winnings, na.rm=TRUE)` |
+
+
+#Plots to describe the basic data using all players, using the data from after 2003.
 
 ```{r echo = F}
-summary(cleanplayersnoNA)
+barplot(table(after2003$main), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players in major SOC codes", xlab = "Frequency", ylab = "Major code")
+
+barplot(table(after2003$region), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and region", xlab = "Frequency")
+
+barplot(table(after2003$division), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and region", xlab = "Frequency")
+
+barplot(table(after2003$year), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games represented within each year", xlab = "Games", ylab = "Year")
+
+```
+
+The data have been split to only look at players participating in 2003 and after due to the rules chaning to allow contestants to participate in more games.  The frequencies of players participating in numbers of games are charted below.
+
+```{r echo=FALSE}
+
+after2003counts <- table(cleanplayersnoNA$after2003, cleanplayersnoNA$numgames)
+barplot(after2003counts, main="Number of games participated in", ylab="Frequency", xlab="Number of games", col=c("cadetblue4","antiquewhite"),legend = rownames(after2003counts), beside = T)
+
+```
+
+#Exploration of winnings and categorical data
+
+```{r echo = F}
+boxplot(after2003noken$winnings ~ after2003noken$region, horizontal=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Winnings by region", xlab = "Winnings", ylab = "Region")
+
+boxplot(after2003noken$winnings ~ after2003noken$division, horizontal=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Winnings by division", xlab = "Winnings", ylab = "Division")
+
+boxplot(after2003noken$numgames ~ after2003noken$region, horizontal=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games played by players in regions", xlab = "Games played", ylab = "Region")
 ```
 
 Aggregate the average amount of winnings by main group.
 
 ```{r echo = F}
 
-justwinnings <-data.frame(cleanplayersnoNA$main, cleanplayersnoNA$winnings)
-options(digits=3)
-attach(justwinnings)
+#winningmeans <-aggregate(after2003noken$winnings, by=list(after2003noken$region, after2003noken$division), FUN=mean, na.rm = T)
+
+divwinnings <- after2003noken$winnings
+divdivision <- after2003noken$division
+divagg <- data.frame(divwinnings, divdivision)
+divmeans <- aggregate(divwinnings, by = list(divdivision), FUN=mean, na.rm=T)
+colnames(divmeans) <- c("division", "mean")
+barplot(divmeans$mean, names.arg=divmeans$division, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "United States divisions", main="Mean winnings by division (w/o Ken Jennings)")
+
+mainwinnings <- after2003noken$winnings
+mainmain <- after2003noken$main
+mainagg <- data.frame(mainwinnings, mainmain)
+mainmeans <- aggregate(mainwinnings, by = list(mainmain), FUN=mean, na.rm=T)
+colnames(mainmeans) <- c("majorcode", "mean")
+barplot(mainmeans$mean, names.arg=mainmeans$majorcode, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "SOC Major codes", main="Mean winnings by SOC Major code (w/o Ken Jennings")
+
+df <- data.frame(table(after2003noken$main))
+df <- subset(df, df$Freq > 0)
+dffreq <- df$Freq
+dfmeainmeans <- mainmeans
+dfmeans <- data.frame(mainmeans, dffreq)
+dfmeans <- subset(dfmeans, dfmeans$dffreq > 5)
+morethanfivewinnings <- dfmeans$mean
+morethanfivemains <- dfmeans$majorcode
+morethanfiveagg <- data.frame(morethanfivewinnings, morethanfivemains)
+morethanfivemainmeans <- aggregate(morethanfivewinnings, by = list(morethanfivemains), FUN=mean, na.rm=T)
+colnames(morethanfivemainmeans) <- c("majorcode", "mean")
+barplot(morethanfivemainmeans$mean, names.arg=morethanfivemainmeans$majorcode, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "SOC Major codes", main="Mean winnings by SOC Major code\n with more than 5 instances (w/o Ken Jennings")
 
 ```
 
@@ -186,7 +279,7 @@ boxplot(nokenmroethanone$winnings ~ nokenmroethanone$main, data = nokenmroethano
 
 ```
 
-Frequency of players within major SOC codes and game winners or not.
+Frequency of players within major SOC codes and game winners or not, using 2003 and after data.
 
 ```{r echo = F}
 
