@@ -2,12 +2,14 @@ New England, Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Ver
 Mid-Atlantic, New Jersey, New York, Pennsylvania
 East North Central, Illinois, Indiana, Michigan, Ohio, Wisconsin
 West North Central, Iowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota
-South Atlantic, Delaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, Washington D.C., West Virginia
+South Atlantic, Delaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, Washington D.C., District of Columbia, West Virginia
 East South Central, Alabama, Kentucky, Mississippi, Tennessee
 West South Central, Arkansas, Louisiana, Oklahoma, Texas
 Mountain, Arizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming
 Pacific, Alaska, California, Hawaii, Oregon, Washington
 Region 4, Arizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming, Alaska, California, Hawaii, Oregon, Washington
-Region 3, Delaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, Washington D.C., West Virginia, Alabama, Kentucky, Mississippi, Tennessee, Arkansas, Louisiana, Oklahoma, Texas
+Region 3, Delaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, Washington D.C., District of Columbia, West Virginia, Alabama, Kentucky, Mississippi, Tennessee, Arkansas, Louisiana, Oklahoma, Texas
 Region 2, Illinois, Indiana, Michigan, Ohio, Wisconsin, Iowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota
 Region 1, Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont, New Jersey, New York, Pennsylvania
+Region 5, Guam, Puerto Rico, Virgin Islands
+Territories, Guam, Puerto Rico, Virgin Islands
