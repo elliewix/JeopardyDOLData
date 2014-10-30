@@ -6,9 +6,12 @@ output: html_document
 ---
 
 ```{r echo=FALSE}
-library("data.table")
-library(ggplot2)
 options("scipen"=999)
+
+printMoney <- function(x){
+  format(round(x,digits=2), digits=10, nsmall=2, decimal.mark=".", big.mark=",")
+}
+
 
 ```
 
@@ -87,7 +90,14 @@ cleanplayers$year [cleanplayers$year > 2015] <- NA
 #This reduced the total number of players for analysis to about 5,000.
 
 
-cleanplayersnoNA <- na.omit(cleanplayers)
+
+cleanplayersnoNA <- cleanplayers
+
+# I'm leaving the following code in, but it should be considered to be deprecated.    
+# removing the line from comment below will remove all players with NA values from the dataset.
+# NAs are being handled on a more elegant basis, but it may be of use later.
+
+#cleanplayersnoNA <- na.omit(cleanplayers)
 
 id <- cleanplayersnoNA$id
 name <- cleanplayersnoNA$name
@@ -111,14 +121,61 @@ after2003 <- subset(cleanplayersnoNA, year >= 2003)
 after2003noken <- subset(after2003, id != '661')
 noken <- subset(cleanplayersnoNA, id != '661')
 
+kenswinnings <- after2003$winnings[after2003$id == '661']
+after2003sd <- sd(after2003$winnings)
+after2003nokensd <- sd(after2003noken$winnings)
+
 cleanplayersnoNA$after2003 <- NA
 cleanplayersnoNA$after2003 [cleanplayersnoNA$year >= 2003] <- "2003 and after"
 cleanplayersnoNA$after2003 [cleanplayersnoNA$year < 2003] <- "Before 2003"
 
 
+justone <- subset(cleanplayersnoNA, cleanplayersnoNA$numgames == 1)
+morethanone <- subset(cleanplayersnoNA, cleanplayersnoNA$numgames > 1)
+
+justoneafter2003 <- subset(after2003, after2003$numgames == 1)
+morethanoneafter2003 <- subset(after2003, after2003$numgames > 1)
+morethanoneafter2003noken <- subset(after2003noken, after2003noken$numgames > 1)
+
 ```
 
-There were a total of `r length(usplayerswithsoc$ID)` players imported.  After removing players with NA values within either their SOC or SOC Major codes, this becomes `r length(id)`.
+# Data description
+
+### Collection and preparation 
+
+There were a total of `r length(usplayerswithsoc$ID)` players were imported, representing the subset of players who were detected to be from the United States and all duplicates removed.  Duplicates were defined as entities with matching name and winnings values.
+
+Data were pulled from player statistics HTML pages from [J-Archive!](http://j-archive.com/).  Example page:  
+[http://j-archive.com/showplayerstats.php?player_id=8000](http://j-archive.com/showplayerstats.php?player_id=8000).
+
+Players were scraped in and associated data gathered.  Occupational statements were aligned to the [2010 SOC code system](http://www.bls.gov/soc/major_groups.htm).  28% of the players are failing to match with a controlled SOC code.  Some additional SOC codes and groups were added to increase this matching.  The curated version of the SOC code system is available [here](https://github.com/elliewix/JeopardyDOLData/blob/master/scripts-soccodes.csv).
+
+All code to produce the associated CSV files is located in an IPython Notebook available for viewing and download [here](http://nbviewer.ipython.org/github/elliewix/JeopardyDOLData/blob/master/PreparePlayerFiles.ipynb).  All original player and analysis files are available within [this github repository](http://nbviewer.ipython.org/github/elliewix/JeopardyDOLData/tree/master/).
+
+The data have been split to only look at players participating in 2003 and after due a rules change that removed the maximum number of games each participant may compete in.  The frequencies of players participating in numbers of games are charted below.
+
+### Exploring the impact of Ken Jennings
+
+The majority of plots and other descriptives involving winnings will utilize a dataset that excludes Ken Jennings.  Ken is the highest winning player ever on Jeopardy!, with a total of $`r printMoney(kenswinnings)`.  The standard deviation for the set of players after 2003 with Ken is $`r printMoney(after2003sd)` and is $`r printMoney(after2003nokensd)` when Ken is removed.  His winnings have a z-score of `r (kenswinnings - mean(after2003$winnings) ) / sd(after2003$winnings)` when compared to the data set of including his value, and `r (kenswinnings - mean(after2003noken$winnings) ) / sd(after2003noken$winnings)` when excluding him.  This z-score goes down to `r (kenswinnings - mean(morethanoneafter2003$winnings)) / sd(morethanoneafter2003$winnings)` when looking just within the subset of players who have participated in more than one game.
+
+| Data | Mean | SD |
+| ---- | ---- | -- | 
+| 2003 and after, all players | $`r printMoney(mean(after2003$winnings))` | $`r printMoney(sd(after2003$winnings))` |
+| 2003 and after, excluding Ken | $`r printMoney(mean(after2003noken$winnings))` |  $`r printMoney(sd(after2003noken$winnings))` | 
+
+The distribution of winnings is highly skewed to the right and lacks a normal distribution.  However, the distribution of winnings for players participating in just one game (indicating that they played without winning) is less skewed, but still not normal.  The data below include Ken Jennings.
+
+```{r echo = F}
+
+hist(after2003noken$winnings,breaks=50, main='Winnings histogram for all players after 2003\n(excluding Ken Jennings)',xlab='Winnings')
+
+hist(justoneafter2003$winnings, breaks=50, main = 'Winnings histogram for players after 2003\ncompeting in only one game',xlab="Winnings")
+
+hist(morethanoneafter2003$winnings, breaks=50, main = 'Winnings histogram for players\ncompeting in more than one game\n(including Ken Jennings)',xlab="Winnings")
+
+hist(morethanoneafter2003noken$winnings, breaks=50, main = 'Winnings histogram for players\ncompeting in more than one game\n(excluding Ken Jennings)',xlab="Winnings")
+
+```
 
 ```{r echo= F}
 
@@ -134,56 +191,78 @@ popcount <- length(id)
 
 
 # Descriptive statistics 
-###The most common occurances for categorial values
+###Categorial values
 
-| Variable | Value | Count |
-| -------- | ----- | ----- |
-| Occupation phrase | `r maxfreq(occ)[1]` | `r maxfreq(occ)[2]` |
-| Location phrase | `r maxfreq(loc)[1]` | `r maxfreq(loc)[2]` |
-| Controlled state value | `r maxfreq(state)[1]` | `r maxfreq(state)[2]` |
-| SOC code | `r maxfreq(soc)[1]` | `r maxfreq(soc)[2]` |
-| SOC Major code | `r maxfreq(main)[1]` | `r maxfreq(main)[2]` |
-| United States division | `r maxfreq(division)[1]` | `r maxfreq(division)[2]` |
-| United States region | `r maxfreq(region)[1]` | `r maxfreq(region)[2]` |
+| Variable | Value | Count | NAs |
+| -------- | ----- | ----- | --- |
+| Occupation phrase | `r maxfreq(occ)[1]` | `r maxfreq(occ)[2]` | `r length(occ[is.na(occ)])`  |
+| Location phrase | `r maxfreq(loc)[1]` | `r maxfreq(loc)[2]` |  `r length(loc[is.na(loc)])` |
+| Controlled state value | `r maxfreq(state)[1]` | `r maxfreq(state)[2]` | `r length(state[is.na(state)])` |
+| SOC code | `r maxfreq(soc)[1]` | `r maxfreq(soc)[2]` | `r length(soc[is.na(soc)])`  |
+| SOC Major code | `r maxfreq(main)[1]` | `r maxfreq(main)[2]` | `r length(main[is.na(main)])`  |
+| United States division | `r maxfreq(division)[1]` | `r maxfreq(division)[2]` |  `r length(division[is.na(division)])` |
+| United States region | `r maxfreq(region)[1]` | `r maxfreq(region)[2]` | `r length(region[is.na(region)])`  |
 
-###The descriptive statistics for quantitative variables for all players were:
+###Quantitative values
 
-| Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | 
-| -------- | ------- | ------------ | ------ | ---- | ------------ | ------- |
-| Numer of games participated in  | `r min(numgames, na.rm=TRUE)` | `r quantile(numgames, na.rm=TRUE)[2]` | `r median(numgames, na.rm=TRUE)`  |  `r mean(numgames, na.rm=TRUE)` |  `r quantile(numgames, na.rm=TRUE)[4]` |  `r max(numgames, na.rm=TRUE)` |
-| Total winnings | `r min(winnings, na.rm=TRUE)` | `r quantile(winnings, na.rm=TRUE)[2]` | `r median(winnings, na.rm=TRUE)`  |  `r mean(winnings)` |  `r quantile(winnings, na.rm=TRUE)[4]` |  `r max(winnings, na.rm=TRUE)` |
+| Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | NAs |
+| -------- | ------- | ------------ | ------ | ---- | ------------ | ------- | --- |
+| Numer of games participated in  | `r min(numgames, na.rm=TRUE)` | `r quantile(numgames, na.rm=TRUE)[2]` | `r median(numgames, na.rm=TRUE)`  |  `r mean(numgames, na.rm=TRUE)` |  `r quantile(numgames, na.rm=TRUE)[4]` |  `r max(numgames, na.rm=TRUE)` | `r length(numgames[is.na(numgames)])`  |
+| Total winnings | `r min(winnings, na.rm=TRUE)` | `r quantile(winnings, na.rm=TRUE)[2]` | `r median(winnings, na.rm=TRUE)`  |  `r mean(winnings)` |  `r quantile(winnings, na.rm=TRUE)[4]` |  `r max(winnings, na.rm=TRUE)` | `r length(winnings[is.na(winnings)])` (False positives not being detected) |
 
-###The descriptive statistics for quantitative variables for players playing 2003 and after were:
+### Summary of the 2003 subset
 
-| Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | 
-| -------- | ------- | ------------ | ------ | ---- | ------------ | ------- |
-| Numer of games participated in  | `r min(after2003$numgames, na.rm=TRUE)` | `r quantile(after2003$numgames, na.rm=TRUE)[2]` | `r median(after2003$numgames, na.rm=TRUE)`  |  `r mean(after2003$numgames, na.rm=TRUE)` |  `r quantile(after2003$numgames, na.rm=TRUE)[4]` |  `r max(after2003$numgames, na.rm=TRUE)` |
-| Total winnings | `r min(after2003$winnings, na.rm=TRUE)` | `r quantile(after2003$winnings, na.rm=TRUE)[2]` | `r median(after2003$winnings, na.rm=TRUE)`  |  `r mean(after2003$winnings)` |  `r quantile(after2003$winnings, na.rm=TRUE)[4]` |  `r max(after2003$winnings, na.rm=TRUE)` |
+#### Winnings
+| Data | n | Mean | Minimum | Maximum | SD |
+| ---- | - | ---- | ------- | ------- | -- |
+| All players after 2003 | `r length(after2003$id)` | $`r printMoney(mean(after2003$winnings))` | $`r printMoney(min(after2003$winnings))` | $`r printMoney(max(after2003$winnings))` | $`r printMoney(sd(after2003$winnings))` |
+| Players only participating in one game | `r length(justoneafter2003$id)` | $`r printMoney(mean(justoneafter2003$winnings))` | $`r printMoney(min(justoneafter2003$winnings))` | $`r printMoney(max(justoneafter2003$winnings))` | $`r printMoney(sd(justoneafter2003$winnings))` |
+| Players participating in more than one game\n (including Ken Jennings) | `r length(morethanoneafter2003$id)` | $`r printMoney(mean(morethanoneafter2003$winnings))` | $`r printMoney(min(morethanoneafter2003$winnings))` | $`r printMoney(max(morethanoneafter2003$winnings))` | $`r printMoney(sd(morethanoneafter2003$winnings))` |
+| Players participating in more than one game\n (excluding Ken Jennings) | `r length(morethanoneafter2003noken$id)` | $`r printMoney(mean(morethanoneafter2003noken$winnings))` |  $`r printMoney(min(morethanoneafter2003noken$winnings))` |  $`r printMoney(max(morethanoneafter2003noken$winnings))` |  $`r printMoney(sd(morethanoneafter2003noken$winnings))` |
+
+The $0 minimum values for the players participating in more than one game are likely artifacts of missing game data within the database.  Manual inspection of the data shows that there are only four of these cases.
+
+#### Number of games participated in
+
+| Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | NAs |
+| -------- | ------- | ------------ | ------ | ---- | ------------ | ------- | --- |
+| Numer of games participated in  | `r min(after2003$numgames, na.rm=TRUE)` | `r quantile(after2003$numgames, na.rm=TRUE)[2]` | `r median(after2003$numgames, na.rm=TRUE)`  |  `r mean(after2003$numgames, na.rm=TRUE)` |  `r quantile(after2003$numgames, na.rm=TRUE)[4]` |  `r max(after2003$numgames, na.rm=TRUE)` | `r length(numgames[is.na(numgames)])`  |
+| Total winnings | `r min(after2003$winnings, na.rm=TRUE)` | `r quantile(after2003$winnings, na.rm=TRUE)[2]` | `r median(after2003$winnings, na.rm=TRUE)`  |  `r mean(after2003$winnings)` |  `r quantile(after2003$winnings, na.rm=TRUE)[4]` |  `r max(after2003$winnings, na.rm=TRUE)` | `r length(winnings[is.na(winnings)])` (False positives not being detected) |
 
 
-#Plots to describe the basic data using all players, using the data from after 2003.
+#Plots
+
+Unless mentioned otherwise, all plots are using the data from after 2003.
 
 ```{r echo = F}
-barplot(table(after2003$main), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players in major SOC codes", xlab = "Frequency", ylab = "Major code")
+#barplot(table(after2003$main), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players \nwithin SOC major codes", xlab = "Frequency", ylab = "Major code")
 
-barplot(table(after2003$region), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and region", xlab = "Frequency")
+barplot(table(cleanplayers$main), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players \nwithin SOC major codes\n(all player data)", xlab = "Frequency", ylab = "Major code")
 
-barplot(table(after2003$division), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and region", xlab = "Frequency")
+#barplot(table(after2003$region), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and region", xlab = "Frequency", ylab="United States census region")
 
-barplot(table(after2003$year), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games represented within each year", xlab = "Games", ylab = "Year")
+barplot(table(cleanplayers$region), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and region\n(all players)", xlab = "Frequency", ylab="United States census region")
+
+barplot(table(after2003$division), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and\nUnited States Census Bureau region\n(2003 and after)", xlab = "Frequency")
+
+barplot(table(cleanplayers$division), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Frequencies of players and\nUnited States Census Bureau region\n(all players", xlab = "Frequency")
+
+barplot(table(after2003$year), horiz=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games in the\ndataset for each year 2003 and after", xlab = "Games", ylab = "Year")
 
 ```
 
-The data have been split to only look at players participating in 2003 and after due to the rules chaning to allow contestants to participate in more games.  The frequencies of players participating in numbers of games are charted below.
+
 
 ```{r echo=FALSE}
 
 after2003counts <- table(cleanplayersnoNA$after2003, cleanplayersnoNA$numgames)
-barplot(after2003counts, main="Number of games participated in", ylab="Frequency", xlab="Number of games", col=c("cadetblue4","antiquewhite"),legend = rownames(after2003counts), beside = T)
+barplot(after2003counts, main="Number of games each player\nparticipated in grouped by game era", ylab="Frequency", xlab="Number of games", col=c("cadetblue4","antiquewhite"),legend = rownames(after2003counts), beside = T)
 
 ```
 
-#Exploration of winnings and categorical data
+###Exploration of winnings and categorical data
+
+The data below are all excluding Ken Jennings.
 
 ```{r echo = F}
 boxplot(after2003noken$winnings ~ after2003noken$region, horizontal=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Winnings by region", xlab = "Winnings", ylab = "Region")
@@ -192,8 +271,6 @@ boxplot(after2003noken$winnings ~ after2003noken$division, horizontal=T, cex.nam
 
 boxplot(after2003noken$numgames ~ after2003noken$region, horizontal=T, cex.names=0.5, cex.axis=.5, beside=T, las=1, main="Number of games played by players in regions", xlab = "Games played", ylab = "Region")
 ```
-
-Aggregate the average amount of winnings by main group.
 
 ```{r echo = F}
 
@@ -204,14 +281,14 @@ divdivision <- after2003noken$division
 divagg <- data.frame(divwinnings, divdivision)
 divmeans <- aggregate(divwinnings, by = list(divdivision), FUN=mean, na.rm=T)
 colnames(divmeans) <- c("division", "mean")
-barplot(divmeans$mean, names.arg=divmeans$division, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "United States divisions", main="Mean winnings by division (w/o Ken Jennings)")
+barplot(divmeans$mean, names.arg=divmeans$division, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "United States divisions", main="Mean winnings by division")
 
 mainwinnings <- after2003noken$winnings
 mainmain <- after2003noken$main
 mainagg <- data.frame(mainwinnings, mainmain)
 mainmeans <- aggregate(mainwinnings, by = list(mainmain), FUN=mean, na.rm=T)
 colnames(mainmeans) <- c("majorcode", "mean")
-barplot(mainmeans$mean, names.arg=mainmeans$majorcode, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "SOC Major codes", main="Mean winnings by SOC Major code (w/o Ken Jennings")
+barplot(mainmeans$mean, names.arg=mainmeans$majorcode, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "SOC Major codes", main="Mean winnings by SOC Major code")
 
 df <- data.frame(table(after2003noken$main))
 df <- subset(df, df$Freq > 0)
@@ -224,9 +301,11 @@ morethanfivemains <- dfmeans$majorcode
 morethanfiveagg <- data.frame(morethanfivewinnings, morethanfivemains)
 morethanfivemainmeans <- aggregate(morethanfivewinnings, by = list(morethanfivemains), FUN=mean, na.rm=T)
 colnames(morethanfivemainmeans) <- c("majorcode", "mean")
-barplot(morethanfivemainmeans$mean, names.arg=morethanfivemainmeans$majorcode, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "SOC Major codes", main="Mean winnings by SOC Major code\n with more than 5 instances (w/o Ken Jennings")
+barplot(morethanfivemainmeans$mean, names.arg=morethanfivemainmeans$majorcode, horiz = T, cex.names=0.5, cex.axis=.5, las=1, xlab = "Mean winnings", ylab = "SOC Major codes", main="Mean winnings by SOC Major code\n with more than 5 instances")
 
 ```
+
+Several of the SOC major codes only have 1-5 players, so a subset of tabulations was created for better comparision between the groups.
 
 ```{r echo = F}
  #winningagg <- aggregate(cleanperson, by = list( main = justwinnings$cleanplayersnoNA.main), mean)
@@ -242,28 +321,28 @@ barplot(morethanfivemainmeans$mean, names.arg=morethanfivemainmeans$majorcode, h
 ```
 
 
-View boxplot of winnings with Ken Jennings and without.
+### Plots showing the impact of Ken Jennings
 
 ```{r echo = F}
 
 noken <- subset(cleanplayersnoNA, id != '661')
 
-boxplot(cleanplayersnoNA$winnings ~ cleanplayersnoNA$main, data = cleanplayersnoNA)
+boxplot(cleanplayersnoNA$winnings ~ cleanplayersnoNA$main, data = cleanplayersnoNA, main = "Winnings by SOC major code\n(including Ken Jennings)", xlab = "SOC major code", ylab = "Winnings")
 
-boxplot(noken$winnings ~ noken$main, data = noken)
-
-boxplot(noken$winnings ~ noken$year, data = noken)
+boxplot(noken$winnings ~ noken$main, data = noken, main = "Winnings by SOC major code\n(excluding Ken Jennings)", xlab = "SOC major code", ylab = "Winnings")
 
 ```
 
+
+### Winnings over year of the show
+
+```{r echo =FALSE}
+
+boxplot(noken$winnings ~ noken$year, data = noken, main = "Winnings over time", xlab = "Year", ylab = "Winnings")
+boxplot(after2003noken$winnings ~ after2003noken$year, data = noken, main = "Winnings over time", xlab = "Year", ylab = "Winnings")
+
+```
   
-
-```{r echo = F}
-
-justone <- subset(cleanplayersnoNA, cleanplayersnoNA$numgames == 1)
-morethanone <- subset(cleanplayersnoNA, cleanplayersnoNA$numgames > 1)
-```
-Plots comparing all players who have only won one game versus more than one, including Ken Jennings.  There are `r length(justone$id)` players who have only appeared on a single game (`r 100 * (length(justone$id) / length(cleanplayersnoNA$id))`%) and `r length(morethanone$id)` have won at least one game (`r 100 * (length(morethanone$id) / length(cleanplayersnoNA$id))`%).
 
 ```{r echo = F}
 
