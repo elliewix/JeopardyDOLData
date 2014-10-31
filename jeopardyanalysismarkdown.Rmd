@@ -5,8 +5,9 @@ date: "October 27, 2014"
 output: html_document
 ---
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 options("scipen"=999)
+library('knitr')
 
 printMoney <- function(x){
   format(round(x,digits=2), digits=10, nsmall=2, decimal.mark=".", big.mark=",")
@@ -208,7 +209,7 @@ popcount <- length(id)
 | Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | NAs |
 | -------- | ------- | ------------ | ------ | ---- | ------------ | ------- | --- |
 | Number of games participated in  | `r min(numgames, na.rm=TRUE)` | `r quantile(numgames, na.rm=TRUE)[2]` | `r median(numgames, na.rm=TRUE)`  |  `r mean(numgames, na.rm=TRUE)` |  `r quantile(numgames, na.rm=TRUE)[4]` |  `r max(numgames, na.rm=TRUE)` | `r length(numgames[is.na(numgames)])`  |
-| Total winnings | `r min(winnings, na.rm=TRUE)` | `r quantile(winnings, na.rm=TRUE)[2]` | `r median(winnings, na.rm=TRUE)`  |  `r mean(winnings)` |  `r quantile(winnings, na.rm=TRUE)[4]` |  `r max(winnings, na.rm=TRUE)` | `r length(winnings[is.na(winnings)])` (False positives not being detected) |
+| Total winnings | $`r printMoney(min(winnings, na.rm=TRUE))` | $`r printMoney(quantile(winnings, na.rm=TRUE)[2])` | $`r printMoney(median(winnings, na.rm=TRUE))`  |  $`r printMoney(mean(winnings))` |  $`r printMoney(quantile(winnings, na.rm=TRUE)[4])` |  $`r printMoney(max(winnings, na.rm=TRUE))` | `r length(winnings[is.na(winnings)])` (False positives not being detected) |
 
 ### Summary of the 2003 subset
 
@@ -227,8 +228,43 @@ The $0 minimum values for the players participating in more than one game are li
 | Variable | Minimum | 1st Quartile | Median | Mean | 3rd Quartile | Maximum | NAs |
 | -------- | ------- | ------------ | ------ | ---- | ------------ | ------- | --- |
 | Numer of games participated in  | `r min(after2003$numgames, na.rm=TRUE)` | `r quantile(after2003$numgames, na.rm=TRUE)[2]` | `r median(after2003$numgames, na.rm=TRUE)`  |  `r mean(after2003$numgames, na.rm=TRUE)` |  `r quantile(after2003$numgames, na.rm=TRUE)[4]` |  `r max(after2003$numgames, na.rm=TRUE)` | `r length(numgames[is.na(numgames)])`  |
-| Total winnings | `r min(after2003$winnings, na.rm=TRUE)` | `r quantile(after2003$winnings, na.rm=TRUE)[2]` | `r median(after2003$winnings, na.rm=TRUE)`  |  `r mean(after2003$winnings)` |  `r quantile(after2003$winnings, na.rm=TRUE)[4]` |  `r max(after2003$winnings, na.rm=TRUE)` | `r length(winnings[is.na(winnings)])` (False positives not being detected) |
+| Total winnings | $`r printMoney(min(after2003$winnings, na.rm=TRUE))` | $`r printMoney(quantile(after2003$winnings, na.rm=TRUE)[2])` | $`r printMoney(median(after2003$winnings, na.rm=TRUE))`  |  $`r printMoney(mean(after2003$winnings))` |  $`r printMoney(quantile(after2003$winnings, na.rm=TRUE)[4])` |  $`r printMoney(max(after2003$winnings, na.rm=TRUE))` | `r length(winnings[is.na(winnings)])` (False positives not being detected) |
 
+#### Most common values for textual properties
+
+```{r echo=FALSE}
+
+soctable <- data.frame(table(after2003$soc))
+soctable <- soctable[ order(-soctable$Freq), ]
+soctable <- data.frame(soctable$Var1, soctable$Freq)
+soctable <- setNames(soctable, c("SOC_code", "Freq"))
+
+occtable <- data.frame(table(after2003$occ))
+occtable <- occtable[order(-occtable$Freq), ]
+occtable <- data.frame(occtable$Var1, occtable$Freq)
+occtable <- setNames(occtable, c("occ_phrase", "Freq"))
+
+statetable <- data.frame(table(after2003$state))
+statetable <- statetable[order(-statetable$Freq), ]
+statetable <- data.frame(statetable$Var1, statetable$Freq)
+statetable <- setNames(statetable, c("state", "Freq"))
+
+maintable <- data.frame(table(after2003$main))
+maintable <- maintable[order(-maintable$Freq), ]
+maintable <- data.frame(maintable$Var1, maintable$Freq)
+maintable <- setNames(maintable, c("SOC_major_code", "Freq"))
+
+```
+
+```{r echo=F,results='asis',error=F,warning=F}
+options(width = 100)
+
+kable(soctable[1:5,], format = "markdown")
+kable(occtable[1:5,], format = "markdown")
+kable(statetable[1:5,], format = "markdown")
+kable(maintable[1:5,], format = "markdown")
+
+```
 
 #Plots
 
@@ -321,7 +357,7 @@ Several of the SOC major codes only have 1 to 5 players, so a subset of tabulati
 ```
 
 
-### Plots showing the impact of Ken Jennings
+### Plots showing the impact of Ken Jennings, using all data
 
 ```{r echo = F}
 
